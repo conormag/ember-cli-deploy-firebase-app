@@ -1,7 +1,8 @@
 ember-cli-deploy-firebase-app
 ==============================================================================
 
-[Short description of the addon.]
+ember-cli-deploy plugin for deplying an Ember app to firebase.
+
 
 
 Compatibility
@@ -22,7 +23,13 @@ ember install ember-cli-deploy-firebase-app
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+There are 3 options for specifing the firebase project use.
+
+1. Use Deploy Target
+2. set the appName
+3. Use the firebase config projectId
+
+
 
 
 Contributing

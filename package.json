@@ -1,13 +1,18 @@
 {
   "name": "ember-cli-deploy-firebase-app",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.1",
+  "description": "ember-cli-deploy plugin for deploying to Firebase",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember-cli-deploy-plugin"
   ],
-  "repository": "",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/conormag/ember-cli-deploy-firebase-app"
+  },
+  "homepage": "https://github.com/conormag/ember-cli-deploy-firebase-app#readme",
   "license": "MIT",
-  "author": "",
+  "author": "Conor Maguire <conormag@gmail.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -17,15 +22,19 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "test": "ember test",
+    "test": "./node_modules/mocha/bin/mocha tests/unit/index-nodetest.js",
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.7.3"
+    "ember-cli-babel": "^7.7.3",
+    "ember-cli-deploy-plugin": "^0.2.9",
+    "firebase-tools": "^5.1.1"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
     "ember-cli": "~3.10.0",
     "ember-cli-dependency-checker": "^3.1.0",
     "ember-cli-eslint": "^5.1.0",
@@ -47,7 +56,9 @@
     "eslint-plugin-ember": "^6.2.0",
     "eslint-plugin-node": "^8.0.1",
     "loader.js": "^4.7.0",
-    "qunit-dom": "^0.8.4"
+    "mocha": "^6.1.4",
+    "qunit-dom": "^0.8.4",
+    "proxyquire": "^1.7.4"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
