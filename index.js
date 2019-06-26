@@ -13,33 +13,49 @@ module.exports = {
 
       runBefore: ['slack'],
 
+      requiredConfig: ['project', 'token', 'public'],
+
       defaultConfig: {
-        useDeployTarget: false
+        force: true,
+
+        message: function(context) {
+          return (context.revisionData || {}).revisionKey;
+        },
+        public: function(context) {
+          return context.config.build.outputPath;
+        },
+        project: function(context) {
+          return context.config.firebase.projectId;
+        },
+        token: function(context) {
+          return context.config.firebase.deployToken;
+        }
       },
 
       upload: function(context) {
         var outer = this;
 
-        var useDeployTarget = this.readConfig('useDeployTarget');
-        var project = useDeployTarget ? 
-          context.deployTarget : 
-          this.readConfig('appName') || context.config.firebase.projectId;
-
         var options = {
-          project: project,
-          public: context.config.build.outputPath,
-          message: (context.revisionData || {}).revisionKey,
+          project: this.readConfig('project'),
+          public: this.readConfig('public'),
+          message: this.readConfig('message'),
+          force: this.readConfig('force'),
+          token: this.readConfig('token'),
           verbose: context.ui.verbose
         };
-        
-        if (context.config.firebase.deployToken || process.env.FIREBASE_TOKEN) {
-          options.token = context.config.firebase.deployToken || process.env.FIREBASE_TOKEN;
-        }
+
+        var deployOnly = this.readConfig('only');
+        var deployExcept = this.readConfig('except');
+
+        if (deployOnly) options.only = deployOnly;
+        if (deployExcept) options.except = deployExcept;
+
+        this.log(`firebase-tools will receive options: ${JSON.stringify(options)}`, {verbose: true});
 
         return firebaseTools.deploy(options).then(function() {
           outer.log('successful deploy!', {verbose: true});
           return {
-            firebaseProject: project
+            firebaseProject: options.project
           }
         }).catch(function(err) {
           // handle error

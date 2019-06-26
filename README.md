@@ -23,11 +23,25 @@ ember install ember-cli-deploy-firebase-app
 Usage
 ------------------------------------------------------------------------------
 
-There are 3 options for specifing the firebase project use.
+Specify your options in `config/deploy.js`
 
-1. Use Deploy Target
-2. set the appName
-3. Use the firebase config projectId
+```
+  ENV['firebase-app'] = {
+    project: 'firebaseProjectId',
+    token: process.env.FIREBASE_TOKEN,
+  };
+```
+
+Options are:
+
+|Option|Default|required|Notes|
+|------|------|------|-------------|
+|project|firebase.projectId|required|If not specified will default to reading `ENV.firebase.projectId` in `config/environment.js` |
+|token|firebase.deployToken|required|If not specified will default to reading `ENV.firebase.deployToken` in `config/environment.js`|
+|public|build.outputPath|optional| will default to use the build.outputPath in ember-cli-deploy pipeline. This shouldn't need to be changed.|
+|message|revisionData.revisionKey|optional|by default, looks for the revision data ember-cli-deploy-revision-data. Or specify your own message.|
+|only|NA|optional|[equivalent to firebase deploy --only param](https://firebase.google.com/docs/cli#partial_deploys)|
+|except|nA|optional|equivalent to `only` but reversed outcome|
 
 
 
