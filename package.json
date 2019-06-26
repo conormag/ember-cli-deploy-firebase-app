@@ -28,7 +28,7 @@
   "dependencies": {
     "ember-cli-babel": "^7.7.3",
     "ember-cli-deploy-plugin": "^0.2.9",
-    "firebase-tools": "^5.1.1"
+    "firebase-tools": "^7.0.2"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.7.0",
