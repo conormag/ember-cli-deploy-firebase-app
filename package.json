@@ -1,14 +1,14 @@
 {
   "name": "ember-cli-deploy-firebase-app",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "ember-cli-deploy plugin for deploying to Firebase",
   "keywords": [
     "ember-addon",
     "ember-cli-deploy-plugin"
   ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/conormag/ember-cli-deploy-firebase-app"
+    "type": "git",
+    "url": "https://github.com/conormag/ember-cli-deploy-firebase-app"
   },
   "homepage": "https://github.com/conormag/ember-cli-deploy-firebase-app#readme",
   "license": "MIT",
