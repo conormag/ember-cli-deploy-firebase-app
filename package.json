@@ -22,7 +22,7 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "test": "./node_modules/mocha/bin/mocha tests/unit/index-nodetest.js",
+    "test": "./node_modules/mocha/bin/mocha tests/unit/node-indextest.js",
     "test:all": "ember try:each"
   },
   "dependencies": {
