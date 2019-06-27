@@ -2,6 +2,8 @@ ember-cli-deploy-firebase-app
 ==============================================================================
 <img src="https://travis-ci.com/conormag/ember-cli-deploy-firebase-app.svg?branch=master">
 
+[![Ember Observer Score](https://emberobserver.com/badges/ember-cli-deploy-firebase-app.svg)](https://emberobserver.com/addons/ember-cli-deploy-firebase-app)
+
 ember-cli-deploy plugin for deplying an Ember app to firebase.
 
 
