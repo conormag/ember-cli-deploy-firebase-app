@@ -4,8 +4,13 @@ ember-cli-deploy-firebase-app
 
 [![Ember Observer Score](https://emberobserver.com/badges/ember-cli-deploy-firebase-app.svg)](https://emberobserver.com/addons/ember-cli-deploy-firebase-app)
 
-ember-cli-deploy plugin for deplying an Ember app to firebase.
+ember-cli-deploy plugin for deploying an Ember app to firebase. This plugin can be used to deploy from
+ember-cli-deploy build pipelines to firebase hosting. The `only` parameter can be used to deploy any combination of
+hosting, cloud functions, firestore rules/indexes, RTDB or storage rules.
 
+You will need a [CI token from firebase](https://firebase.google.com/docs/cli) to deploy:
+
+```firebase login:ci```
 
 
 Compatibility
